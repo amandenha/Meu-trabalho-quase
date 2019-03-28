@@ -2,7 +2,7 @@ function equaçaoDoSegundoGrau() {
   var a = parseInt(document.getElementById('a').value)
   var b = parseInt(document.getElementById('b').value)
   var c = parseInt(document.getElementById('c').value)
-  var result = document.getElementById('result')
+  var result = document.getElementById('r')
 
   var delta = Math.pow(b, 2) - 4 * a * c
 
@@ -26,31 +26,41 @@ function soma(){
   document.getElementById("result").textContent = n1 + n2
 }
 
-function divisores() {
-  let n1 = parseInt(document.getElementById("n1").value);
-  let n2 = parseInt(document.getElementById("n2").value);
-  let result = document.getElementById("divisores");
-
-  let num1 = [];
- for(let i = n1; i > 0; i--) {
-   if(!(n1 % i)) {
-     num1.push(n1 / i);
-   }
- }
-
- let num2 = [];
- for(let i = n2; i > 0; i--) {
-   if(!(n2 % i)) {
-     num2.push(n2 / i);
-   }
- }
-
- let r = [];
- let size = num1.length > num2.length? num1.length : num2.length;
- for(let i = 0; i < size; i++) {
-   for(let j = 0; j < size; j++) {
-     if(num1[j] == num2[i]) {
-       r.push(num1[j]);
-     }
-   }
- }
+var divisores = function() {
+  var num1 = parseInt(document.getElementById('n1').value)
+  var num2 = parseInt(document.getElementById('n2').value)
+  var r = document.getElementById('divisores')
+  
+  var obj = Object.create({
+    num1: new Array,
+    num2: new Array,
+    dividir: function() {
+      for(let i = num1; i > 0; i--) {
+        if(num1 % i ===  0) {
+          this.num1.push(num1 / i)
+        }
+        else {
+          continue
+        }
+      }
+        
+       for(let i = num2; i > 0; i--) {
+        if(num2 % i === 0) {
+          this.num2.push(num2 / i)
+        }
+        else {
+          continue
+        }
+       }
+    },
+    comparar: function() {
+      var r = []
+      let tam = this.num1.length > this.num2.length? this.num1.length : this.num2.length 
+      for(let i = 0; i < tam; i++) {
+        for(let j = 0; j < tam; j++) {
+          if(
+        }
+      }
+    }
+  })
+}
